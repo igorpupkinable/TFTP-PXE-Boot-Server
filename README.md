@@ -114,11 +114,12 @@ https://wiki.syslinux.org/wiki/index.php?title=PXELINUX
 2. Download new version from https://wiki.syslinux.org/wiki/index.php?title=Download
   `wget https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/6.04/syslinux-6.04-pre1.zip`
 3. Extract modules and dependencies according to https://wiki.syslinux.org/wiki/index.php?title=Library_modules
-  > * bios/com32/elflink/ldlinux.c32
+  > * bios/com32/chain/chain.c32
+  > * bios/com32/elflink/ldlinux/ldlinux.c32
+  > * bios/com32/lib/libcom32.c32
   > * bios/com32/libutil/libutil.c32
   > * bios/com32/menu/menu.c32
-  > * bios/com32/modules/linux.c32
-  > * bios/core/pxelinux.0
+  > * bios/core/lpxelinux.0
 4. DO NOT use Syslinux versions 5.10 to 6.02 due to known bug which crashes VM
   * https://www.virtualbox.org/ticket/13048
   * https://bugzilla.syslinux.org/show_bug.cgi?id=54
@@ -131,6 +132,6 @@ List of standard DHCP options is [here](https://www.iana.org/assignments/bootp-d
 
 ##### Testing with Oracle VirtualBox
 1. Oracle VirtualBox VM requires at least 1024MB of base memory for successful testing.
-2. Oracle VirtualBox VM requires Intel PRO/1000 MT Desktop bridged network adapter for successful BIOS PXE testing.
-3. Oracle VirtualBox VM requires virtio-net bridged network adapter for successful UEFI PXE testing.
+2. Oracle VirtualBox VM requires _Intel PRO/1000 MT Desktop_ bridged network adapter for successful BIOS PXE testing.
+3. Oracle VirtualBox VM requires _virtio-net_ bridged network adapter for successful UEFI PXE testing.
 4. Use Microsoft Hyper-V Generation 2 VM for successful UEFI PXE testing.
