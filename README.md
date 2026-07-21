@@ -3,11 +3,8 @@
 This project contains basic files and folder setup needed for a TFTP PXELINUX server.
 
 Network (PXE) boot supports the following live CD or installation distros for BIOS and UEFI **(without Secure Boot yet)** devices.
-* CentOS 6.x
-* CentOS 7.0
 * CloneZilla Live 64-bit with additional non-free firmware support
 * CloneZilla Live 32-bit with i686 support
-* Fedora 24
 * GParted Live 64-bit
 * GParted Live 32-bit with i686 support
 * Ubuntu 16.04 (Xenial)
@@ -35,10 +32,8 @@ Network (PXE) boot supports the following live CD or installation distros for BI
     ```
 8. Download and configure each bootstrap program you require as per instructions. Bootstraps are **not** committed to this repository due to their size.
     * Alpine Linux (TODO)
-    * CentOS (TODO)
     * [CloneZilla Live 64-bit](#CloneZilla-Live-64-bit-instructions)
     * [CloneZilla Live 32-bit](#CloneZilla-Live-32-bit-instructions)
-    * Fedora (TODO)
     * [GParted Live 64-bit](#GParted-Live-64-bit-instructions)
     * [GParted Live 32-bit](#GParted-Live-32-bit-instructions)
     * Ubuntu Desktop (TODO)
@@ -70,9 +65,6 @@ _tftp_ is the user interface to the Internet TFTP (Trivial File Transfer Protoco
   ```
 
 ### Alpine Linux instructions
-TODO
-
-### CentOS instructions
 TODO
 
 ### CloneZilla Live 64-bit instructions
@@ -113,8 +105,6 @@ More information can be found [here](https://clonezilla.org/livepxe.php)
 
 More information can be found [here](https://clonezilla.org/livepxe.php) and [here](https://drbl.org/fine-print.php?path=./faq/2_System/57_why_ubuntu_based_clonezilla_live.faq#57_why_ubuntu_based_clonezilla_live.faq)
 
-### Fedora instructions
-TODO
 
 ### GParted Live 64-bit instructions
 1. Download _amd64_ ISO or ZIP stable release from [here](https://gparted.org/download.php)
