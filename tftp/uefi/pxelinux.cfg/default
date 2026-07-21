@@ -26,11 +26,12 @@ LABEL CloneZilla Live 64-bit
   frame buffer support.
   ENDTEXT
 
-LABEL GParted Live
+LABEL GParted Live 64-bit
   LINUX http://192.168.0.123/images/GParted/1.8.1-3-amd64/vmlinuz
   APPEND initrd=http://192.168.0.123/images/GParted/1.8.1-3-amd64/initrd.img boot=live config components net.ifnames=0 noeject nomodeset nosplash noswap quiet union=overlay username=user vga=normal fetch=http://192.168.0.123/images/GParted/1.8.1-3-amd64/filesystem.squashfs
   TEXT HELP
-  GParted Live 64-bit with safe graphic settings and disabled console frame buffer support.
+  GParted Live 64-bit with safe graphic settings and disabled console
+  frame buffer support.
   ENDTEXT
 
 LABEL Ubuntu-16.04-Xenial
