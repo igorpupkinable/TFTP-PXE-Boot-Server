@@ -1,5 +1,5 @@
 DEFAULT chainlocal
-MENU TITLE EFI64 PXE | https://github.com/paulmaunders/TFTP-PXE-Boot-Server
+MENU TITLE UEFI x64 PXE | https://github.com/paulmaunders/TFTP-PXE-Boot-Server
 TIMEOUT 150
 UI menu.c32
 

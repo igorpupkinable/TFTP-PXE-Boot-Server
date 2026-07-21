@@ -1,5 +1,8 @@
 # TFTP-PXE-Boot-Server
 
+> [!IMPORTANT]
+> [PR#5](https://github.com/igorpupkinable/TFTP-PXE-Boot-Server/pull/5) dropped support for 32-bit, CentOS, Fedora and loading files via TFTP
+
 This project contains basic files and folder setup needed for a TFTP PXELINUX server.
 
 Network (PXE) boot supports the following live CD or installation distros for BIOS and UEFI **(without Secure Boot yet)** devices.
@@ -13,24 +16,18 @@ Network (PXE) boot supports the following live CD or installation distros for BI
 1. Set up TFTP server
     * You could use http://ww2.unime.it/flr/tftpserver/ for MacOS
     * Follow [these](http://www.pyrosoft.co.uk/blog/2013/01/13/setting-up-a-pxe-boot-server-on-synology-dsm-4-2-beta/) and [these](https://kb.synology.com/en-us/DSM/tutorial/How_to_implement_PXE_with_Synology_NAS) instructions on Synology NAS
-2. Optionally set up HTTP server pointing to _images/_ directory
+2. Set up HTTP server pointing to _http/_ directory
     * Debug HTTP server as per instructions [below](#Debug-HTTP-server)
 3. Check out this project code on TFTP server
-    `git clone --depth 1 git@github.com:paulmaunders/TFTP-PXE-Boot-Server.git .`
-4. Ensure TFTP server root points to this project directory
+    `git clone --depth 1 git@github.com:igorpupkinable/TFTP-PXE-Boot-Server.git .`
+4. Ensure TFTP server root points to _tftp/_ project directory
     * Debug TFTP server as per instructions [below](#Debug-TFTP-server)
 5. Configure your DHCP to use TFTP server
     * Use DHCP option 66 "next-server" if located on a different IP to DHCP server
-    * DHCP should offer the PXELINUX.0 as the boot filename (DHCP option 67)
+    * DHCP should offer the LPXELINUX.0 as the boot filename (DHCP option 67)
     * Follow [these](https://community.synology.com/enu/forum/2/post/124897) instructions on Synology router
-6. Optionally edit the _\<architecture\>/pxelinux.cfg/default_ files to add your PXE boot options
-7. Create symlinks to images in this project directory
-    ```shell
-    user:~$ ln -s <absolute path>/images/ bios/images
-    user:~$ ln -s <absolute path>/images/ efi32/images
-    user:~$ ln -s <absolute path>/images/ efi64/images
-    ```
-8. Download and configure each bootstrap program you require as per instructions. Bootstraps are **not** committed to this repository due to their size.
+6. Edit _tftp/*/pxelinux.cfg/default_ files to add your PXE boot options
+7. Download and configure each bootstrap program you require as per instructions. Bootstraps are **not** committed to this repository due to their size.
     * Alpine Linux (TODO)
     * [CloneZilla Live 64-bit](#CloneZilla-Live-64-bit-instructions)
     * [CloneZilla Live 32-bit](#CloneZilla-Live-32-bit-instructions)
@@ -52,16 +49,16 @@ _tftp_ is the user interface to the Internet TFTP (Trivial File Transfer Protoco
   user:~$ tftp 192.168.0.123
   tftp> verbose
   Verbose mode on.
-  tftp> get bios/pxelinux.0
-  getting from 192.168.0.123:bios/pxelinux.0 to pxelinux.0 [netascii]
-  Received 46995 bytes in 0.2 seconds [1879800 bits/sec]
+  tftp> get bios/lpxelinux.0
+  getting from 192.168.0.123:bios/lpxelinux.0 to lpxelinux.0 [netascii]
+  Received 91044 bytes in 0.2 seconds [3641760 bits/sec]
   tftp> quit
   ```
 
 ### Debug HTTP server
 1. Download a file placed in _images/_ directory
   ```shell
-  user:~$ wget http://192.168.0.123/somefile.txt
+  user:~$ wget http://192.168.0.123/images/example.ext
   ```
 
 ### Alpine Linux instructions
@@ -155,19 +152,19 @@ TODO
 
 ---
 ### Further documentation
-The Syslinux Project  
-https://www.syslinux.org/  
+The Syslinux Project
+https://www.syslinux.org/
 
-PXELINUX is a Syslinux derivative for booting from a network server  
+PXELINUX is a Syslinux derivative for booting from a network server
 https://wiki.syslinux.org/wiki/index.php?title=PXELINUX
 
 * Configuration introduction can be found [here](https://wiki.syslinux.org/wiki/index.php?title=Config)
 * Advanced menu system configuration documentation can be found [here](https://wiki.syslinux.org/wiki/index.php?title=Menu)
 
 ##### How to upgrade Syslinux
-1. Clone repository  
+1. Clone repository
   `git clone --depth 1 https://github.com/paulmaunders/TFTP-PXE-Boot-Server .`
-2. Download new version from https://wiki.syslinux.org/wiki/index.php?title=Download  
+2. Download new version from https://wiki.syslinux.org/wiki/index.php?title=Download
   `wget https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/6.04/syslinux-6.04-pre1.zip`
 3. Extract modules and dependencies according to https://wiki.syslinux.org/wiki/index.php?title=Library_modules
   > * bios/com32/elflink/ldlinux.c32
