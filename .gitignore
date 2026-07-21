@@ -1,3 +1,5 @@
+/images/
+/misc/
 .DS_Store
 vmlinuz
 *.img
