@@ -18,11 +18,12 @@ LABEL chainlocal
   Boot local OS from first hard disk if available.
   ENDTEXT
 
-LABEL CloneZilla Live
-  LINUX http://pxe.local/clonezilla/20230212-kinetic/vmlinuz
-  APPEND initrd=http://pxe.local/clonezilla/20230212-kinetic/initrd.img boot=live components config edd=on enforcing=0 keyboard-layouts= locales= net.ifnames=0 nodmraid noeject nomodeset noprompt nosplash noswap ocs_live_batch=no ocs_live_extra_param="" ocs_live_run="ocs-live-general" quiet vga=normal username=user union=overlay fetch=http://pxe.local/clonezilla/20230212-kinetic/filesystem.squashfs
+LABEL CloneZilla Live 64-bit
+  LINUX http://192.168.0.123/images/CloneZilla/20260705-resolute-amd64/vmlinuz
+  APPEND initrd=http://192.168.0.123/images/CloneZilla/20260705-resolute-amd64/initrd.img boot=live components config edd=on enforcing=0 keyboard-layouts= locales= net.ifnames=0 nodmraid noeject nomodeset noprompt nosplash noswap ocs_live_batch=no ocs_live_extra_param="" ocs_live_run="ocs-live-general" quiet vga=normal username=user union=overlay fetch=http://192.168.0.123/images/CloneZilla/20260705-resolute-amd64/filesystem.squashfs
   TEXT HELP
-  CloneZilla Live 64-bit with safe graphic settings and disabled console frame buffer support.
+  CloneZilla Live 64-bit with safe graphic settings and disabled console
+  frame buffer support.
   ENDTEXT
 
 LABEL GParted Live

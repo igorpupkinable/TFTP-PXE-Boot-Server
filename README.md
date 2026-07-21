@@ -7,7 +7,6 @@ This project contains basic files and folder setup needed for a TFTP PXELINUX se
 
 Network (PXE) boot supports the following live CD or installation distros for BIOS and UEFI **(without Secure Boot yet)** devices.
 * CloneZilla Live 64-bit with additional non-free firmware support
-* CloneZilla Live 32-bit with i686 support
 * GParted Live 64-bit
 * GParted Live 32-bit with i686 support
 * Ubuntu 16.04 (Xenial)
@@ -30,7 +29,6 @@ Network (PXE) boot supports the following live CD or installation distros for BI
 7. Download and configure each bootstrap program you require as per instructions. Bootstraps are **not** committed to this repository due to their size.
     * Alpine Linux (TODO)
     * [CloneZilla Live 64-bit](#CloneZilla-Live-64-bit-instructions)
-    * [CloneZilla Live 32-bit](#CloneZilla-Live-32-bit-instructions)
     * [GParted Live 64-bit](#GParted-Live-64-bit-instructions)
     * [GParted Live 32-bit](#GParted-Live-32-bit-instructions)
     * Ubuntu Desktop (TODO)
@@ -66,42 +64,17 @@ TODO
 
 ### CloneZilla Live 64-bit instructions
 1. Download _amd64_ ISO or ZIP alternative stable release from [here](https://clonezilla.org/downloads/download.php?branch=alternative)
-2. Create image version directory in this project, i.e. `images/clonezilla/20230212-kinetic`
+2. Create image version directory in this project, i.e. `images/CloneZilla/20230212-kinetic`
 3. Extract _vmlinuz_, _initrd.img_ and _filesystem.squashfs_ files from `live/` directory of the downloaded archive
 4. Image version directory should look like this
-  > * images/clonezilla/20230212-kinetic/filesystem.squashfs
-  > * images/clonezilla/20230212-kinetic/initrd.img
-  > * images/clonezilla/20230212-kinetic/vmlinuz
-5. Make sure CloneZilla Live x64 _KERNEL_, _APPEND initrd_ and _APPEND fetch_ paths and TFTP/HTTP server IP match in _\<architecture\>/pxelinux.cfg/default_ configuration file, e.g.
-  > for TFTP:
-  > LINUX images/clonezilla/20230212-kinetic/vmlinuz
-  > APPEND initrd=images/clonezilla/20230212-kinetic/initrd.img ... fetch=tftp://192.168.0.123/images/clonezilla/20230212-kinetic/filesystem.squashfs
-  > 
-  > for HTTP:
-  > LINUX http://192.168.0.123/clonezilla/20230212-kinetic/vmlinuz
-  > APPEND initrd=http://192.168.0.123/clonezilla/20230212-kinetic/initrd.img ... fetch=http://192.168.0.123/clonezilla/20230212-kinetic/filesystem.squashfs
+  > * images/CloneZilla/20230212-kinetic/filesystem.squashfs
+  > * images/CloneZilla/20230212-kinetic/initrd.img
+  > * images/CloneZilla/20230212-kinetic/vmlinuz
+5. Make sure CloneZilla Live x64 _KERNEL_, _APPEND initrd_ and _APPEND fetch_ paths and TFTP/HTTP server IP match in _tftp/*/pxelinux.cfg/default_ configuration file for BIOS and UEFI, e.g.
+  > LINUX http://192.168.0.123/images/CloneZilla/20230212-kinetic/vmlinuz
+  > APPEND initrd=http://192.168.0.123/images/CloneZilla/20230212-kinetic/initrd.img ... fetch=http://192.168.0.123/images/CloneZilla/20230212-kinetic/filesystem.squashfs
 
-More information can be found [here](https://clonezilla.org/livepxe.php)
-
-### CloneZilla Live 32-bit instructions
-1. Download _i686_ ISO or ZIP stable release from [here](https://clonezilla.org/downloads/download.php?branch=stable)
-2. Create image version directory in this project, i.e. `images/clonezilla/3.1.0-22-i686`
-3. Extract _vmlinuz_, _initrd.img_ and _filesystem.squashfs_ files from `live/` directory of the downloaded archive
-4. Image version directory should look like this
-  > * images/clonezilla/3.1.0-22-i686/filesystem.squashfs
-  > * images/clonezilla/3.1.0-22-i686/initrd.img
-  > * images/clonezilla/3.1.0-22-i686/vmlinuz
-5. Make sure CloneZilla Live x32 _KERNEL_, _APPEND initrd_ and _APPEND fetch_ paths and TFTP/HTTP server IP match in _\<architecture\>/pxelinux.cfg/default_ configuration file, e.g.
-  > for TFTP:
-  > LINUX images/clonezilla/3.1.0-22-i686/vmlinuz
-  > APPEND initrd=images/clonezilla/3.1.0-22-i686/initrd.img ... fetch=tftp://192.168.0.123/images/clonezilla/3.1.0-22-i686/filesystem.squashfs
-  > 
-  > for HTTP:
-  > LINUX http://192.168.0.123/clonezilla/3.1.0-22-i686/vmlinuz
-  > APPEND initrd=http://192.168.0.123/clonezilla/3.1.0-22-i686/initrd.img ... fetch=http://192.168.0.123/clonezilla/3.1.0-22-i686/filesystem.squashfs
-
-More information can be found [here](https://clonezilla.org/livepxe.php) and [here](https://drbl.org/fine-print.php?path=./faq/2_System/57_why_ubuntu_based_clonezilla_live.faq#57_why_ubuntu_based_clonezilla_live.faq)
-
+More information can be found [here](https://CloneZilla.org/livepxe.php)
 
 ### GParted Live 64-bit instructions
 1. Download _amd64_ ISO or ZIP stable release from [here](https://gparted.org/download.php)
