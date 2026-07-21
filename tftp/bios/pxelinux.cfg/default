@@ -41,14 +41,6 @@ LABEL CloneZilla Live 64-bit
   frame buffer support.
   ENDTEXT
 
-LABEL CloneZilla Live 32-bit
-  LINUX http://pxe.local/clonezilla/3.1.0-22-i686/vmlinuz
-  APPEND initrd=http://pxe.local/clonezilla/3.1.0-22-i686/initrd.img boot=live components config edd=on enforcing=0 keyboard-layouts= locales= net.ifnames=0 nodmraid noeject nomodeset noprompt nosplash noswap ocs_live_batch=no ocs_live_extra_param="" ocs_live_run="ocs-live-general" quiet vga=normal username=user union=overlay fetch=http://pxe.local/clonezilla/3.1.0-22-i686/filesystem.squashfs
-  TEXT HELP
-  CloneZilla Live 32-bit with i686, safe graphic settings and disabled console
-  frame buffer support.
-  ENDTEXT
-
 LABEL Fedora-24-x86_64
   MENU LABEL Install Fedora 24 x86_64
   LINUX images/fedora/24/x86_64/vmlinuz
@@ -59,14 +51,6 @@ LABEL GParted Live 64-bit
   APPEND initrd=http://pxe.local/gparted/1.5.0-1-amd64/initrd.img boot=live config components net.ifnames=0 noeject nomodeset nosplash noswap quiet union=overlay username=user vga=normal fetch=http://pxe.local/gparted/1.5.0-1-amd64/filesystem.squashfs
   TEXT HELP
   GParted Live 64-bit with safe graphic settings and disabled console
-  frame buffer support.
-  ENDTEXT
-
-LABEL GParted Live 32-bit
-  LINUX http://pxe.local/gparted/1.5.0-1-i686/vmlinuz
-  APPEND initrd=http://pxe.local/gparted/1.5.0-1-i686/initrd.img boot=live config components net.ifnames=0 noeject nomodeset nosplash noswap quiet union=overlay username=user vga=normal fetch=http://pxe.local/gparted/1.5.0-1-i686/filesystem.squashfs
-  TEXT HELP
-  GParted Live 32-bit with i686, safe graphic settings and disabled console
   frame buffer support.
   ENDTEXT
 
