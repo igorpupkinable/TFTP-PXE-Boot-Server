@@ -27,8 +27,8 @@ LABEL CloneZilla Live 64-bit
   ENDTEXT
 
 LABEL GParted Live 64-bit
-  LINUX http://pxe.local/gparted/1.5.0-1-amd64/vmlinuz
-  APPEND initrd=http://pxe.local/gparted/1.5.0-1-amd64/initrd.img boot=live config components net.ifnames=0 noeject nomodeset nosplash noswap quiet union=overlay username=user vga=normal fetch=http://pxe.local/gparted/1.5.0-1-amd64/filesystem.squashfs
+  LINUX http://192.168.0.123/images/GParted/1.5.0-1-amd64/vmlinuz
+  APPEND initrd=http://192.168.0.123/images/GParted/1.5.0-1-amd64/initrd.img boot=live config components net.ifnames=0 noeject nomodeset nosplash noswap quiet union=overlay username=user vga=normal fetch=http://192.168.0.123/images/GParted/1.5.0-1-amd64/filesystem.squashfs
   TEXT HELP
   GParted Live 64-bit with safe graphic settings and disabled console
   frame buffer support.
